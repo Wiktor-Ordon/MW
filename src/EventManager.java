@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class EventManager {
+public class EventManager { // Zarządza wydarzeniami
 
     private List<GameEvent> eventPool;
     private Random random;
@@ -14,17 +14,17 @@ public class EventManager {
         resetEvents();
     }
 
-    public void resetEvents() {
+    public void resetEvents() { //Odświeża dostępna póle po cyklu
         this.eventPool.clear();
         initEventPool();
     }
 
-    public void removePlayedEvents(List<String> history) {
+    public void removePlayedEvents(List<String> history) { //Zapobiega rozegraniu wydarzenia powtarzalnego więcej razy
         if (history == null || history.isEmpty()) return;
         eventPool.removeIf(event -> history.contains(event.description));
     }
 
-    public GameEvent getRandomEvent(PlayerState player) {
+    public GameEvent getRandomEvent(PlayerState player) { //Losuje i sprawdza warunki wydarzenia
         if (eventPool.isEmpty()) {
             return new GameEvent("Spokojny dzień. Brak wydarzeń.",
                     List.of(new GameEvent.Choice("Odpoczywam", 0, 5, 5, null)));
@@ -62,13 +62,13 @@ public class EventManager {
         return selectedEvent;
     }
 
-    private void addEvent(String desc, GameEvent.Choice... choices) {
+    private void addEvent(String desc, GameEvent.Choice... choices) { //Wydarzenie wypadające z póli
         List<GameEvent.Choice> choiceList = new ArrayList<>();
         for (GameEvent.Choice c : choices) choiceList.add(c);
         eventPool.add(new GameEvent(desc, choiceList));
     }
 
-    private void addRepeatableEvent(String desc, GameEvent.Choice... choices) {
+    private void addRepeatableEvent(String desc, GameEvent.Choice... choices) { //Powtarzalne wydarzenie
         List<GameEvent.Choice> choiceList = new ArrayList<>();
         for (GameEvent.Choice c : choices) choiceList.add(c);
         GameEvent e = new GameEvent(desc, choiceList);
@@ -76,7 +76,7 @@ public class EventManager {
         eventPool.add(e);
     }
 
-    private void addComplexEvent(String require, String forbid, String desc, GameEvent.Choice... choices) {
+    private void addComplexEvent(String require, String forbid, String desc, GameEvent.Choice... choices) { //Niepowtarzalne wydarzenie warunkowe
         List<GameEvent.Choice> choiceList = new ArrayList<>();
         for (GameEvent.Choice c : choices) choiceList.add(c);
         GameEvent e = new GameEvent(desc, choiceList);
@@ -85,7 +85,7 @@ public class EventManager {
         eventPool.add(e);
     }
 
-    private void addRepairEvent(String brokenItem, String desc, GameEvent.Choice... choices) {
+    private void addRepairEvent(String brokenItem, String desc, GameEvent.Choice... choices) { //Powtarzalne wydarzenie zależne
         List<GameEvent.Choice> choiceList = new ArrayList<>();
         for (GameEvent.Choice c : choices) choiceList.add(c);
 
@@ -98,7 +98,7 @@ public class EventManager {
 
 
 
-    private void initEventPool() {
+    private void initEventPool() { //Przechowuje wszystkie dostępne wydarzenia
 
         // Wydarzenia powtarzające się
         // 1.

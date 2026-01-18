@@ -1,4 +1,4 @@
-public class GameLogic {
+public class GameLogic { // Klasa zawierająca "logikę" rozgrywki
 
     private PlayerState player;
     private EventManager eventManager;

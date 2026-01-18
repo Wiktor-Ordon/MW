@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerState implements Serializable {
+public class PlayerState implements Serializable { //Przechowuje stan gracz
     public int day;
     public double budget;
     public int happiness;

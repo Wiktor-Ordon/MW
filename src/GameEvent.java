@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class GameEvent {
+public class GameEvent { //Wydarzenia i ich własności
     String description;
     List<Choice> choices;
 
@@ -9,7 +9,7 @@ public class GameEvent {
     String forbiddenItem;
     MinigameType minigameType;
 
-    public GameEvent(String description, List<Choice> choices) {
+    public GameEvent(String description, List<Choice> choices) { //Definiuje wydarzenie
         this.description = description;
         this.choices = choices;
         this.isRepeatable = false;
@@ -19,7 +19,7 @@ public class GameEvent {
     }
 
 
-    public enum MinigameType {
+    public enum MinigameType { //Minigry
         NONE,
         REFLEX_LIGHTS,
         MOUSE_CATCH
@@ -43,7 +43,7 @@ public class GameEvent {
         return this;
     }
 
-    public static class Choice {
+    public static class Choice { //Własności wyborów
         String label;
         double cost;
         int happinessEffect;

@@ -4,7 +4,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class GameWindow extends JFrame {
+public class GameWindow extends JFrame { // Generuje okna gry
 
     private JPanel mainPanel;
     private JPanel rightInfoPanel;

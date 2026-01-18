@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MinigameManager {
+public class MinigameManager { // Odpowiada za obsługę minigier
 
     private GameWindow gameWindow;
     private JPanel eventPanel;
@@ -17,7 +17,7 @@ public class MinigameManager {
         this.logic = logic;
     }
 
-    public void startReflexGame(GameEvent event) {
+    public void startReflexGame(GameEvent event) { //Minigra "Przejście na pasach"
         eventPanel.removeAll();
         eventPanel.setLayout(new GridBagLayout());
 
@@ -72,7 +72,7 @@ public class MinigameManager {
         eventPanel.repaint();
     }
 
-    public void startMouseGame(GameEvent event) {
+    public void startMouseGame(GameEvent event) { //Minigra "Myszy"
         eventPanel.removeAll();
         eventPanel.setLayout(null);
 
@@ -115,7 +115,7 @@ public class MinigameManager {
         eventPanel.repaint();
     }
 
-    private JPanel createMinigameFrame(String title) {
+    private JPanel createMinigameFrame(String title) { //Tworzy okno minigier
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setPreferredSize(new Dimension(500, 300));
@@ -129,7 +129,7 @@ public class MinigameManager {
         return panel;
     }
 
-    public static class CircleButton extends JButton {
+    public static class CircleButton extends JButton {// "Sygnalizator" wykorzystywany w mini grze
         public CircleButton(String label) {
             super(label);
             setContentAreaFilled(false);

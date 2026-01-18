@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class SaveSystem {
+public class SaveSystem { // Odpowiada za zapis i odczyt
     private static final String FILE_NAME = "savegame.txt";
 
-    public static void saveGame(PlayerState state) {
+    public static void saveGame(PlayerState state) { //Zapis
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
             writer.println(state.day);
             writer.println(state.budget);
@@ -36,7 +36,7 @@ public class SaveSystem {
         }
     }
 
-    public static PlayerState loadGame() {
+    public static PlayerState loadGame() { //Odczyt
         File file = new File(FILE_NAME);
         if (!file.exists()) return null;
 
